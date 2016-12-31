@@ -80,8 +80,8 @@ struct judgeresult{
         }
         sout << "\"PeakMemory\":" << peak_mem << ",";
         sout << "\"AltMemory\":" << alt_mem << ",";
-        sout << "\"UserTime\": [" << utime_sec << "," << utime_usec << "],";
-        sout << "\"SysTime\" : [" << stime_sec << "," << stime_usec << "]";
+        sout << "\"UserTime\":[" << utime_sec << "," << utime_usec << "],";
+        sout << "\"SysTime\":[" << stime_sec << "," << stime_usec << "]";
         sout << "}\n";
         return sout.str();
     }
@@ -154,7 +154,6 @@ int watch_cmd(pid_t pid) {
         result.stime_sec = usage.ru_stime.tv_sec;
         result.stime_usec = usage.ru_stime.tv_usec;
         result.peak_mem = usage.ru_maxrss;
-        printf("%ld\n" , usage.ru_maxrss);
         result.alt_mem = (long)((long long)usage.ru_minflt * (long long)getpagesize() / 1024LL);
     }
     return 0;
