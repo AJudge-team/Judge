@@ -1,16 +1,13 @@
 #include <iostream>
-
-#include <cstdio>
-#include <algorithm>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-    long long counter = 0;
-    for(long long i = 0; i < 4000000000LL; ++i) {
-        counter = (counter + i)%124 + (i*i)%12;
-    }
-    cout<<counter<<endl;
+    string name;
+    cin >> name;
+    cout << "Hello! " << name << "!!!!" << endl;
+    cerr << "Hi! " << name << "!!!!!!!!" << endl;
     return 0;
 }
