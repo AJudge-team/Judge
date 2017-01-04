@@ -37,7 +37,7 @@ struct judgecontext{
             sout << argv[i];
         }
         sout << "\"";
-        sout << "}\n";
+        sout << "}";
         return sout.str();
     }
 } ctx;
@@ -82,7 +82,7 @@ struct judgeresult{
         sout << "\"AltMemory\":" << alt_mem << ",";
         sout << "\"UserTime\":[" << utime_sec << "," << utime_usec << "],";
         sout << "\"SysTime\":[" << stime_sec << "," << stime_usec << "]";
-        sout << "}\n";
+        sout << "}";
         return sout.str();
     }
 } result;
