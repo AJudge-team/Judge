@@ -75,7 +75,7 @@ struct judgeresult{
         sout << "\"Signaled\":" << STRBOOL(signaled) << ",";
         if(signaled) {
             sout << "\"Signal\":" << signal << ",";
-            sout << "\"SignalStr\":" << signal_string << ",";
+            sout << "\"SignalStr\":\"" << signal_string << "\",";
             sout << "\"Coredump\":" << STRBOOL(coredump) << ",";
         }
         sout << "\"PeakMemory\":" << peak_mem << ",";
@@ -110,13 +110,13 @@ void run_cmd()
     struct rlimit limiter;
     // time limit
     limiter.rlim_cur = ctx.time_limit;
-    limiter.rlim_max = ctx.time_limit;
+    limiter.rlim_max = ctx.time_limit+1;
     setrlimit(RLIMIT_CPU, &limiter);
 
     // memory limit
     if(ctx.memory_limit > 0) {
         limiter.rlim_cur = ctx.memory_limit * _MB;
-        limiter.rlim_max = ctx.memory_limit * _MB;
+        limiter.rlim_max = (ctx.memory_limit * _MB) + _MB;
         setrlimit(RLIMIT_AS, &limiter);
     }
     execvp(ctx.argv[0], ctx.argv);
