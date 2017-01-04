@@ -181,9 +181,7 @@ int main(int argc, char** argv)
         else result.OK = false;
     }
     
-    string strctx = ctx.to_string();
     string strres = result.to_string();
-    printf("%s\n", strctx.c_str());
     printf("%s\n", strres.c_str());
     return 0;
 }
